@@ -33,9 +33,15 @@ class FirstPage extends Component {
                     </Row>
                 </Container>
                 <Container style={{ backgroundColor: "#305040" }}>
+                        <Row style={{paddingTop:10,paddingBottom:10}}>
+                        <Col md={4}><hr className="linhasSeparatorias"></hr></Col>
+                        <Col md={4}><h1 className="textTitulo">METODOLOGIA</h1></Col>
+                        <Col md={4}><hr className="linhasSeparatorias"></hr></Col>    
+                        </Row>    
+                </Container>
+                <Container style={{ backgroundColor: "#305040" }}>
                     <Row>
                         <Col style={{ paddingTop: 90, color: "white" }} md={6}>
-                            <h1 className="textTitulo"> Metodologia </h1>
                             <p className="body-text">A metodologia seguiu os princípios do Design Thinking, partindo das pesquisas
                                 referentes às produções na área de enfermagem em classificação de risco na urgência e
                                 emergência e na área da informática, na segunda etapa foram analisadas ferramentas
@@ -56,6 +62,7 @@ class FirstPage extends Component {
                             </div>
                         </Col>
                     </Row>
+                    <hr className="linhasSeparatorias"></hr>
                     <Container>
                         <Row style={{paddingTop:10,paddingBottom:10}}>
                         <Col md={4}><hr className="linhasSeparatorias"></hr></Col>
@@ -82,6 +89,7 @@ class FirstPage extends Component {
                                 ótima experiência do usuário.</p>
                         </Col>
                     </Row>
+                    <hr className="linhasSeparatorias"></hr>
                     <Container>
                         <Row style={{paddingTop:15,paddingBottom:10}}>
                         <Col md={4}><hr className="linhasSeparatorias"></hr></Col>
