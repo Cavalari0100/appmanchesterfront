@@ -1,4 +1,18 @@
 p.body-text{
     color:white;
     padding: 10px;
+    text-align: justify;
+}
+h1.textTitulo{
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+hr.linhasSeparatorias{
+    background-color: rgb(211, 155, 35);
+}
+p.textoPgInit{
+    color: white;
 }
