@@ -12,6 +12,9 @@ class MainNavBar extends Component{
                     <Nav className="mr-auto" navbar>
                         <NavItem><NavLink href="/CadastroPaciente">Cadastro</NavLink></NavItem>
                     </Nav>
+                    <Nav className="mr-auto" navbar>
+                        <NavItem><NavLink href="/pacientes">Lista de Pacientes</NavLink></NavItem>
+                    </Nav>
                 </Navbar>
             </div>
             
