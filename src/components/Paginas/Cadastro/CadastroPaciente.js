@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import { Col, Row, Button, Form, FormGroup, Label, Input, Container,InputGroup } from 'reactstrap';
 
+function alertCadPaci(){
+  alert("Paciente Cadastrado");
+}
 
 function CreatNewPaciente(props){
   
@@ -106,7 +109,7 @@ function CreatNewPaciente(props){
             </Col>
           </InputGroup>
           <div>
-            <Button style={{background:"#3399ff"}} type="submit" className="btn btn-secondary mb-1" block onClick={"/"}>Registar</Button>
+            <Button style={{background:"#3399ff"}} type="submit" className="btn btn-secondary mb-1" block onClick="alertCadPaci()">Registar</Button>
           </div>
         </Form>
       
