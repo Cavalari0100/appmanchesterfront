@@ -1,14 +1,19 @@
 import React from 'react';
 import { Component } from 'react';
-import { Navbar, NavbarBrand, NavItem ,Nav, NavLink, Container} from 'reactstrap';
+import { Navbar, NavbarBrand, NavItem, Nav, NavLink, Container } from 'reactstrap';
 
-class MainNavBar extends Component{
-    state={};
-    render(){
-        return(
-            <div>           
-                <Navbar color="light" light expand="lg" style={{position:"fixed", width:"100%", paddingLeft:25}}>
-                    <NavbarBrand href="/">App Manchester</NavbarBrand>
+class MainNavBar extends Component {
+    state = {};
+    render() {
+        return (
+            <div style={{ paddingBottom: 100 }}>
+                <Navbar fixed="top"
+                    expand="md"
+                    style={
+                        { backgroundColor: "white", position: "fixed", width: '100%' }
+                    }
+                >
+                    <NavbarBrand href="/" style={{marginLeft: "15px", color: "black" }} >App Manchester</NavbarBrand>
                     <Nav className="mr-auto" navbar>
                         <NavItem><NavLink href="/CadastroPaciente">Cadastro</NavLink></NavItem>
                     </Nav>
@@ -17,7 +22,7 @@ class MainNavBar extends Component{
                     </Nav>
                 </Navbar>
             </div>
-            
+
         );
     }
 }

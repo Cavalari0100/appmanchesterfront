@@ -6,7 +6,7 @@ import { Col, Row, Button, Form, FormGroup, Label, Input, Container,InputGroup }
 function CreatNewPaciente(props){
   
   const [newPaciente,setNewPaciente] = useState({nome:'',cep:'',cidade:'',cpf:'',email:'',endereco:'',estado:'',numeroResidencia:'',rg:'',telefone:''});
-  const url = "http://localhost:3001/creatNewPaciente"
+  const url = "https://uploadappmanchester.herokuapp.com/creatNewPaciente"
   //{"nome":"","cep":"","cidade":"","cpf":"","email":"","endereco":"","estado":"","numeroResidencia":"","rg":"","telefone":""}
   
   const IncertNewPaciente = (e) =>{
