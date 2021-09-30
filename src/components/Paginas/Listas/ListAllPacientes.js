@@ -1,5 +1,7 @@
 import React, {useState , useEffect} from 'react';
 import axios from 'axios';
+import MaterialTable from 'material-table';
+import tableIcons from '../../common/materialTableIcons';
 import { Container , Row } from 'reactstrap';
 
 function ListAllPacientes(props){
@@ -19,9 +21,60 @@ function ListAllPacientes(props){
 
     return(
         <Container>
-            <Row style={{paddingTop:50 , color:"black"}}>
-            <h1>teste</h1>
-            </Row>
+            <MaterialTable
+                icons={tableIcons}
+                title='Lista de Pacientes Cadastrados'
+                columns={[
+                    {
+                        title:'Nome',
+                        field:"nome"
+                    },
+                    {
+                        title:'E-mail',
+                        field:"email"
+                    },
+                    {
+                        title:'Cidade',
+                        field:"cidade"
+                    },
+                    {
+                        title:'Endereço',
+                        field:"endereco"
+                    },
+                    {
+                        title:'N°',
+                        field:"numeroResidencia"
+                    },
+                    {
+                        title:'Estado',
+                        field:"estado"
+                    },
+                    {
+                        title:'Cep',
+                        field:"cep"
+                    },
+                    {
+                        title:'CPF',
+                        field:"cpf"
+                    },
+                    {
+                        title:'RG',
+                        field:"rg"
+                    },
+                    {
+                        title:'Telefone',
+                        field:"telefone"
+                    },
+                ]}
+                data={pacientes}
+                actions={[
+                    {
+                        icon:'→',
+                        tooltip:'ID DO PACIENTE',
+                        onClick:(event,pacientes) => alert("ID DO PACIENTE : " + pacientes.id)
+                    }
+                ]}
+             />
         </Container>
     )
 }
