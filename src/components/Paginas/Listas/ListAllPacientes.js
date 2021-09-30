@@ -16,8 +16,6 @@ function ListAllPacientes(props){
                 setListPacientes(data);
             }
     } , [])
-    console.log(pacientes);
-
 
     return(
         <Container>
