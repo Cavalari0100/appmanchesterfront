@@ -2,10 +2,6 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import { Col, Row, Button, Form, FormGroup, Label, Input, Container,InputGroup } from 'reactstrap';
 
-function alertCadPaci(){
-  alert("Paciente Cadastrado");
-}
-
 function CreatNewPaciente(props){
   
   const [newPaciente,setNewPaciente] = useState({nome:'',cep:'',cidade:'',cpf:'',email:'',endereco:'',estado:'',numeroResidencia:'',rg:'',telefone:''});
@@ -17,6 +13,7 @@ function CreatNewPaciente(props){
     const data ={ nome: newPaciente.nome,cep: newPaciente.cep,cidade: newPaciente.cidade,cpf: newPaciente.cpf,email:newPaciente.email,endereco: newPaciente.endereco,
                   estado: newPaciente.estado,numeroResidencia: newPaciente.numeroResidencia,rg: newPaciente.rg,telefone: newPaciente.telefone}
     axios.post(url,data);
+    props.history.push("/pacientes")
   }
   const onChange = (e) =>{
     e.persist();
@@ -109,7 +106,7 @@ function CreatNewPaciente(props){
             </Col>
           </InputGroup>
           <div>
-            <Button style={{background:"#3399ff"}} type="submit" className="btn btn-secondary mb-1" block onClick="alertCadPaci()">Registar</Button>
+            <Button className="teste" style={{background:"#3399ff"}} type="submit" className="btn btn-secondary mb-1" block onClick={""} >Registar</Button>
           </div>
         </Form>
       
