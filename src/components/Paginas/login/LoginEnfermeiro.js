@@ -1,10 +1,21 @@
 import React, { useEffect } from 'react';
 import {
-    Card, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, Col, Row, Form, FormGroup, Label, Input, Container, InputGroup
+    Card, CardBody,
+    CardTitle, CardSubtitle, Button, Col, Row, Form, Label, Input, InputGroup
 } from 'reactstrap';
+import axios from 'axios';
+
+
 
 function LoginEnfermeiro(props) {
+
+    const url = 'https://uploadappmanchester.herokuapp.com/listAllEnfermeiro'
+
+    const Login = () =>{
+
+    }
+
+    //função que manda o enfermeiro para pagina de registro.
     const JoinPage = () => {
         props.history.push("/register-enfermeiro")
     }
@@ -25,7 +36,7 @@ function LoginEnfermeiro(props) {
                             <Col md={6}>
                                 <InputGroup style={{ paddingBottom: 25 }}>
                                     <Label for="passWord" style={{ paddingRight: 15 }}>Password :</Label>
-                                    <Input type="text" name="passWord" id="passWord" placeholder="Digite uma senha para acesso" />
+                                    <Input type="password" name="passWord" id="passWord" placeholder="Digite uma senha para acesso" />
                                 </InputGroup>
                             </Col>
                         </Row>
