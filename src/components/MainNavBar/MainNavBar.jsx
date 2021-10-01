@@ -14,20 +14,13 @@ class MainNavBar extends Component {
                     }
                 >   <Container>
                         <Row>
-                            <Col md={3}>
+                            <Col>
+                                <p>LOGO</p>
+                            </Col>
+                            <Col>
                                 <NavbarBrand href="/" style={{ marginLeft: "15px", color: "black" }} >App Manchester</NavbarBrand>
                             </Col>
-                            <Col md={3}>
-                                <Nav className="mr-auto" navbar>
-                                    <NavItem><NavLink href="/CadastroPaciente">Cadastrar Paciente</NavLink></NavItem>
-                                </Nav>
-                            </Col>
-                            <Col md={3}>
-                                <Nav className="mr-auto" navbar>
-                                    <NavItem><NavLink href="/pacientes">Lista de Pacientes</NavLink></NavItem>
-                                </Nav>
-                            </Col>
-                            <Col md={3}>
+                            <Col>
                                 <Nav className="mr-auto" navbar>
                                     <NavItem><NavLink href="/login-enfermeiro">Login</NavLink></NavItem>
                                 </Nav>
