@@ -3,12 +3,12 @@ import axios from 'axios';
 import { Col, Row, Button, Form, FormGroup, Label, Input, Container, InputGroup } from 'reactstrap';
 
 function CreatNewEnfermeiro(props) {
-    const [newEnfermeiro, setNewEnfermeiro] = useState({ nome: '', email: '', passWord: '', cpf: '', rg: '', coren: '' })
-    const url = 'urlbackend'
+    const [newEnfermeiro, setNewEnfermeiro] = useState({ nome: '', email: '', password: '', cpf: '', rg: '', coren: '' })
+    const url = 'https://uploadappmanchester.herokuapp.com/creatNewEnfermeiro'
 
     const IncertNewEnfermeiro = (e) => {
         e.preventDefault();
-        const data = { nome: newEnfermeiro.nome, email: newEnfermeiro.email, passWord: newEnfermeiro.passWord, cpf: newEnfermeiro.cpf, rg: newEnfermeiro.rg, coren: newEnfermeiro.coren }
+        const data = { nome: newEnfermeiro.nome, email: newEnfermeiro.email, password: newEnfermeiro.password, cpf: newEnfermeiro.cpf, rg: newEnfermeiro.rg, coren: newEnfermeiro.coren }
         axios.post(url, data);
         props.history.push("/pacientes");
     }
@@ -34,8 +34,8 @@ function CreatNewEnfermeiro(props) {
                     </Col>
                     <Col md={5}>
                         <InputGroup style={{ paddingBottom: 25 }}>
-                            <Label for="passWord">passWord :</Label>
-                            <Input type="text" name="passWord" id="passWord" placeholder="Digite uma senha para acesso" value={newEnfermeiro.passWord} onChange={onChange} />
+                            <Label for="passWord">Password :</Label>
+                            <Input type="text" name="passWord" id="passWord" placeholder="Digite uma senha para acesso" value={newEnfermeiro.password} onChange={onChange} />
                         </InputGroup>
                     </Col>
                     <Col md={5}>
