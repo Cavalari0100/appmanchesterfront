@@ -35,7 +35,7 @@ function CreatNewEnfermeiro(props) {
                     <Col md={5}>
                         <InputGroup style={{ paddingBottom: 25 }}>
                             <Label for="passWord">Password :</Label>
-                            <Input type="text" name="passWord" id="passWord" placeholder="Digite uma senha para acesso" value={newEnfermeiro.password} onChange={onChange} />
+                            <Input type="password" name="password" id="passWord" placeholder="Digite uma senha para acesso" value={newEnfermeiro.password} onChange={onChange} />
                         </InputGroup>
                     </Col>
                     <Col md={5}>
