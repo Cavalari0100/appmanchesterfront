@@ -5,12 +5,31 @@ import { Navbar, NavbarBrand, NavItem, Nav, NavLink, Container, Row, Col } from 
 function MainNavBar(props) {
 
     console.log(props.user)
+
+    function isLogin() {
+        if (!props.user) {
+            return (
+                <Nav className="mr-auto" navbar>
+                    <NavItem><NavLink href="/login-enfermeiro">Login</NavLink></NavItem>
+                </Nav>
+            )
+        }
+    }
+
     function HandleUser() {
         if (props.user) {
-            return(
-            <Col>
-                <NavItem>{props.user}</NavItem>
-            </Col>
+            return (
+                <Container>
+                    <Col>
+                        <NavItem>{props.user}</NavItem>
+                    </Col>
+                    <Col>
+                        <NavItem><NavLink href="/pacientes">Lista de Pacientes</NavLink></NavItem>
+                    </Col>
+                    <Col>
+                        <NavItem><NavLink href="/cadastroPaciente">Cadastrar Paciente</NavLink></NavItem>
+                    </Col>
+                </Container>
             )
         }
     }
@@ -21,8 +40,8 @@ function MainNavBar(props) {
                 style={
                     { backgroundColor: "white", position: "fixed", width: '100%' }
                 }
-            >   
-            <Container>
+            >
+                <Container>
                     <Row>
                         <Col>
                             <p>LOGO</p>
@@ -31,11 +50,10 @@ function MainNavBar(props) {
                             <NavbarBrand href="/" style={{ marginLeft: "15px", color: "black" }} >App Manchester</NavbarBrand>
                         </Col>
                         <Col>
-                            <Nav className="mr-auto" navbar>
-                                <NavItem><NavLink href="/login-enfermeiro">Login</NavLink></NavItem>
-                            </Nav>
-                        </Col>
+                            {isLogin()}
                             {HandleUser()}
+                        </Col>
+                        
                     </Row>
                 </Container>
             </Navbar>
