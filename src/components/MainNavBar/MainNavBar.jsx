@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import { Navbar, NavbarBrand, NavItem, Nav, NavLink, Container } from 'reactstrap';
+import { Navbar, NavbarBrand, NavItem, Nav, NavLink, Container, Row, Col } from 'reactstrap';
 
 class MainNavBar extends Component {
     state = {};
@@ -12,14 +12,28 @@ class MainNavBar extends Component {
                     style={
                         { backgroundColor: "white", position: "fixed", width: '100%' }
                     }
-                >
-                    <NavbarBrand href="/" style={{marginLeft: "15px", color: "black" }} >App Manchester</NavbarBrand>
-                    <Nav className="mr-auto" navbar>
-                        <NavItem><NavLink href="/CadastroPaciente">Cadastro</NavLink></NavItem>
-                    </Nav>
-                    <Nav className="mr-auto" navbar>
-                        <NavItem><NavLink href="/pacientes">Lista de Pacientes</NavLink></NavItem>
-                    </Nav>
+                >   <Container>
+                        <Row>
+                            <Col md={3}>
+                                <NavbarBrand href="/" style={{ marginLeft: "15px", color: "black" }} >App Manchester</NavbarBrand>
+                            </Col>
+                            <Col md={3}>
+                                <Nav className="mr-auto" navbar>
+                                    <NavItem><NavLink href="/CadastroPaciente">Cadastrar Paciente</NavLink></NavItem>
+                                </Nav>
+                            </Col>
+                            <Col md={3}>
+                                <Nav className="mr-auto" navbar>
+                                    <NavItem><NavLink href="/pacientes">Lista de Pacientes</NavLink></NavItem>
+                                </Nav>
+                            </Col>
+                            <Col md={3}>
+                                <Nav className="mr-auto" navbar>
+                                    <NavItem><NavLink href="/login-enfermeiro">Login</NavLink></NavItem>
+                                </Nav>
+                            </Col>
+                        </Row>
+                    </Container>
                 </Navbar>
             </div>
 
