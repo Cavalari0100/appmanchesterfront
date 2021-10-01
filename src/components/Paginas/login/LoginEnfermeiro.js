@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import {
     Card, CardBody,
     CardTitle, CardSubtitle, Button, Col, Row, Form, Label, Input, InputGroup
@@ -8,17 +8,35 @@ import axios from 'axios';
 
 
 function LoginEnfermeiro(props) {
+    const [newLogin,setLogin] = useState({email:'', password:''});
+    const url = 'https://uploadappmanchester.herokuapp.com/loginEnfermeiro'
 
-    const url = 'https://uploadappmanchester.herokuapp.com/listAllEnfermeiro'
 
-    const Login = () =>{
 
+    const onChange = (e) => {
+        e.persist();
+        setLogin({ ...newLogin, [e.target.name]: e.target.value });
+    }
+
+    const Login = async (e) =>{
+        const result = await axios.post(url,newLogin).then(res =>{
+            return res.data;
+        }).catch(err =>{
+            return false;
+        })
+        console.log(result);
+        if(result){
+            localStorage.setItem("login",newLogin.email);
+            props.history.push("/pacientes")
+        }
+        
     }
 
     //função que manda o enfermeiro para pagina de registro.
     const JoinPage = () => {
         props.history.push("/register-enfermeiro")
     }
+    
     return (
         <div>
             <Card>
@@ -30,18 +48,18 @@ function LoginEnfermeiro(props) {
                             <Col md={6}>
                                 <InputGroup style={{ paddingBottom: 25 }}>
                                     <Label for="email" style={{ paddingRight: 15 }}>E-Mail :</Label>
-                                    <Input type="email" name="email" id="email" placeholder="Digite seu email de contato" />
+                                    <Input type="email" name="email" id="email" placeholder="Digite seu email de contato" value={newLogin.email} onChange={onChange} />
                                 </InputGroup>
                             </Col>
                             <Col md={6}>
                                 <InputGroup style={{ paddingBottom: 25 }}>
-                                    <Label for="passWord" style={{ paddingRight: 15 }}>Password :</Label>
-                                    <Input type="password" name="passWord" id="passWord" placeholder="Digite uma senha para acesso" />
+                                    <Label for="password" style={{ paddingRight: 15 }}>Password :</Label>
+                                    <Input type="password" name="password" id="passWord" placeholder="Digite uma senha para acesso" value={newLogin.password} onChange={onChange} />
                                 </InputGroup>
                             </Col>
                         </Row>
                     </Form>
-                    <Button>Login</Button>
+                    <Button className="teste" style={{ background: "#3399ff" }} type="submit" className="btn btn-secondary mb-1" block onClick={Login}>Login</Button>
                     <hr></hr>
                     <Row>
                         <Col md={6}>

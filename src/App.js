@@ -8,12 +8,24 @@ import FirstPage from './components/Paginas/FirstPage/FirstPage';
 import ListAllPacientes from './components/Paginas/Listas/ListAllPacientes';
 import LoginEnfermeiro from './components/Paginas/login/LoginEnfermeiro';
 import CreatNewEnfermeiro from './components/Paginas/Cadastro/CadastroEnfermeiro';
+import React , {useEffect , useState} from 'react';
 
 
 function App() {
+  
+  const [login,setLogin] = useState("");
+
+  useEffect(async () =>{
+    try{
+      const login = localStorage.getItem("login");
+      setLogin(login);
+    }catch(err){
+
+    }
+  },[])
   return (
     <div className="App">
-      <MainNavBar></MainNavBar>
+      <MainNavBar user={login}></MainNavBar>
       <Router>
         <Container>
           <Switch>
