@@ -4,8 +4,6 @@ import { Navbar, NavbarBrand, NavItem, Nav, NavLink, Container, Row, Col } from 
 
 function MainNavBar(props) {
 
-    console.log(props.user)
-
     function isLogin() {
         if (!props.user) {
             return (
@@ -33,6 +31,13 @@ function MainNavBar(props) {
             )
         }
     }
+    function logout() {
+        return (
+            <Col>
+                <NavItem><NavLink href="/">Logout</NavLink></NavItem>
+            </Col>
+        )
+    }
     return (
         <div style={{ paddingBottom: 100 }}>
             <Navbar fixed="top"
@@ -50,10 +55,14 @@ function MainNavBar(props) {
                             <NavbarBrand href="/" style={{ marginLeft: "15px", color: "black" }} >App Manchester</NavbarBrand>
                         </Col>
                         <Col>
+                            <Nav className="mr-auto" navbar>
+                                <NavItem><NavLink href="/sintomas">cadastro Sintomas</NavLink></NavItem>
+                            </Nav>
                             {isLogin()}
                             {HandleUser()}
+                            {logout()}
                         </Col>
-                        
+
                     </Row>
                 </Container>
             </Navbar>

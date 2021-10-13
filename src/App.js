@@ -9,6 +9,7 @@ import ListAllPacientes from './components/Paginas/Listas/ListAllPacientes';
 import LoginEnfermeiro from './components/Paginas/login/LoginEnfermeiro';
 import CreatNewEnfermeiro from './components/Paginas/Cadastro/CadastroEnfermeiro';
 import React , {useEffect , useState} from 'react';
+import CadastroSintomas from './components/Paginas/Sintomas/CadastroDeSintomas';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
             <Route exact path='/pacientes' component={ListAllPacientes} />
             <Route exact path='/login-enfermeiro' component={LoginEnfermeiro}/>
             <Route exact path='/register-enfermeiro' component={CreatNewEnfermeiro}/>
+            <Route exact path='/Sintomas' component={CadastroSintomas}/>
           </Switch>
         </Container>
       </Router>
