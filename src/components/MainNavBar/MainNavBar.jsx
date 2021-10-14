@@ -28,9 +28,10 @@ function MainNavBar(props) {
                     <Navbar color='dark'>
                         <Container>
                             <Nav className="me-auto">
-                                <NavItem><NavLink href="/pacientes">Lista de Pacientes</NavLink></NavItem>
                                 <NavItem><NavLink href="/cadastroPaciente">Cadastrar Paciente</NavLink></NavItem>
+                                <NavItem><NavLink href="/pacientes">Lista de Pacientes</NavLink></NavItem>
                                 <NavItem><NavLink href="/sintomas">Cadastro Sintomas</NavLink></NavItem>
+                                <NavItem><NavLink href="/prontuarios">Lista de Prontuarios</NavLink></NavItem>
                             </Nav>
                         </Container>
                     </Navbar>
