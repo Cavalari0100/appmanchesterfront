@@ -27,7 +27,7 @@ function LoginEnfermeiro(props) {
         console.log(result);
         if(result){
             localStorage.setItem("login",newLogin.email);
-            props.history.push("/pacientes")
+            window.location.href = '/'
         }
         
     }
