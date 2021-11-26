@@ -7,7 +7,7 @@ function UpdateEnfermeiro(props) {
     const [enfermeiro, setListEnfermeiro] = useState([]);
     //Alterando  Produto
     const UpgradeEnfermeiro = async (id) => {
-        const url = "http://localhost:3001/enfermeiro/" + props.match.params.id;
+        const url = "https://uploadappmanchester.herokuapp.com/enfermeiro/" + props.match.params.id;
         await axios({
             method: "PUT",
             url: url,

@@ -7,7 +7,7 @@ function ListAllEnfermeiros(props) {
     const [update, setUpdate] = useState(null);
     const [enfermeiro, setListEnfermeiro] = useState([]);
     useEffect(async () => {
-        const url = "http://localhost:3001/listAllEnfermeiro";
+        const url = "https://uploadappmanchester.herokuapp.com/listAllEnfermeiro";
         const data = await axios.get(url).then(response => {
             return response.data;
         }).catch(err => {
@@ -19,7 +19,7 @@ function ListAllEnfermeiros(props) {
     }, [])
 
     const DeleteEnfermeiro = async (id) => {
-        const url = "http://localhost:3001/enfermeiro/" + id;
+        const url = "https://uploadappmanchester.herokuapp.com/enfermeiro/" + id;
         const data = await axios.delete(url).then(response => {
             return response.data;
         }).catch(err => {

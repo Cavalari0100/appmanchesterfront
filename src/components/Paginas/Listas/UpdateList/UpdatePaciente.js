@@ -7,7 +7,7 @@ function UpdatePaciente(props) {
     const [pacientes, setListPaciente] = useState([]);
     //Alterando  Produto
     const UpgradePaciente = async (id) => {
-        const url = "http://localhost:3001/UpdatePaciente/" + props.match.params.id;
+        const url = "https://uploadappmanchester.herokuapp.com/UpdatePaciente/" + props.match.params.id;
         await axios({
             method: "PUT",
             url: url,

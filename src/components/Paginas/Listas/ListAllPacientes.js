@@ -7,7 +7,7 @@ function ListAllEnfermeiros(props) {
     const [update, setUpdate] = useState(null);
     const [pacientes, setListPacientes] = useState([]);
     useEffect(async () => {
-        const url = "http://localhost:3001/paciente";
+        const url = "https://uploadappmanchester.herokuapp.com/paciente";
         const data = await axios.get(url).then(response => {
             return response.data;
         }).catch(err => {
@@ -19,7 +19,7 @@ function ListAllEnfermeiros(props) {
     }, [])
     console.log(pacientes)
     const DeletePaciente = async (id) => {
-        const url = "http://localhost:3001/paciente/" + id;
+        const url = "https://uploadappmanchester.herokuapp.com/paciente/" + id;
         const data = await axios.delete(url).then(response => {
             return response.data;
         }).catch(err => {
