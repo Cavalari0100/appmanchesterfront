@@ -9,9 +9,7 @@ import axios from 'axios';
 
 function LoginEnfermeiro(props) {
     const [newLogin,setLogin] = useState({email:'', password:''});
-    const url = 'https://uploadappmanchester.herokuapp.com/loginEnfermeiro'
-
-
+    const url = 'http://localhost:3001/login'
 
     const onChange = (e) => {
         e.persist();
@@ -25,9 +23,11 @@ function LoginEnfermeiro(props) {
             return false;
         })
         console.log(result);
-        if(result){
-            localStorage.setItem("login",newLogin.email);
-            window.location.href = '/'
+        if(result.token){
+            localStorage.setItem("token",result.token);
+            window.location = "/"
+        }else{
+            alert("Você esta com problema de BIO (bixo ignorante operando o sistema) ERRO!!!!!!")
         }
         
     }
@@ -43,7 +43,6 @@ function LoginEnfermeiro(props) {
                 <CardBody>
                     <CardTitle tag="h5">Login</CardTitle>
                     <CardSubtitle tag="h6" className="mb-2 text-muted">Enfermeiros</CardSubtitle>
-                    <Form>
                         <Row>
                             <Col md={6}>
                                 <InputGroup style={{ paddingBottom: 25 }}>
@@ -58,8 +57,7 @@ function LoginEnfermeiro(props) {
                                 </InputGroup>
                             </Col>
                         </Row>
-                    </Form>
-                    <Button className="teste" style={{ background: "#3399ff" }} type="submit" className="btn btn-secondary mb-1" block onClick={Login}>Login</Button>
+                    <Button className="teste" style={{ background: "#3399ff" }} type="submit" className="btn btn-secondary mb-1" block onClick={() => Login()}>Login</Button>
                     <hr></hr>
                     <Row>
                         <Col md={6}>

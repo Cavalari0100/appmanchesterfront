@@ -7,7 +7,7 @@ class FirstPage extends Component {
     state = {};
     render() {
         return (
-            <div>
+            <Container className="bg-light" fluid>
                 <Container style={{ backgroundColor: "#305040" }}>
                     <Row style={{ paddingTop: 70 }}>
                         <hr className="linhasSeparatorias"></hr>
@@ -125,7 +125,7 @@ class FirstPage extends Component {
                         <h5 style={{ color: "white", fontSize: 12, textAlign: "left" }}>Created by Joao Vitor Cavalari Spavier</h5>
                     </footer>
                 </Container>
-            </div>
+            </Container>
         );
     }
 }

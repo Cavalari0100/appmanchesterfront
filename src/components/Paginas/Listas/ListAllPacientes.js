@@ -1,81 +1,102 @@
-import React, {useState , useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import MaterialTable from 'material-table';
-import tableIcons from '../../common/materialTableIcons';
-import { Container , Row } from 'reactstrap';
+import { Button, Container, Table, Row, Col } from 'reactstrap';
 
-function ListAllPacientes(props){
-        
-    const [pacientes,setListPacientes] = useState([]);
-    useEffect( async  () => {
-        const url = "https://uploadappmanchester.herokuapp.com/listAllPacientes";
-        const data =  await axios.get(url).then(response => {
+function ListAllEnfermeiros(props) {
+
+    const [update, setUpdate] = useState(null);
+    const [pacientes, setListPacientes] = useState([]);
+    useEffect(async () => {
+        const url = "http://localhost:3001/paciente";
+        const data = await axios.get(url).then(response => {
             return response.data;
-        }).catch(err =>{
+        }).catch(err => {
             return false;
         })
-            if(data){
-                setListPacientes(data);
+        if (data) {
+            setListPacientes(data);
+        }
+    }, [])
+    console.log(pacientes)
+    const DeletePaciente = async (id) => {
+        const url = "http://localhost:3001/paciente/" + id;
+        const data = await axios.delete(url).then(response => {
+            return response.data;
+        }).catch(err => {
+            return false;
+        })
+        let index = null
+        pacientes.forEach((paciente, posicao) => {
+            if (paciente._id === id) {
+                index = posicao;
             }
-    } , [])
+        });
+        const tempPaciente = pacientes;
+        tempPaciente.splice(index, 1)
+        setListPacientes(tempPaciente);
+        setUpdate(new Date())
 
-    return(
-        <Container>
-            <MaterialTable
-                icons={tableIcons}
-                title='Lista de Pacientes Cadastrados'
-                columns={[
-                    {
-                        title:'Nome',
-                        field:"nome"
-                    },
-                    {
-                        title:'E-mail',
-                        field:"email"
-                    },
-                    {
-                        title:'Cidade',
-                        field:"cidade"
-                    },
-                    {
-                        title:'Endereço',
-                        field:"endereco"
-                    },
-                    {
-                        title:'N°',
-                        field:"numeroResidencia"
-                    },
-                    {
-                        title:'Estado',
-                        field:"estado"
-                    },
-                    {
-                        title:'Cep',
-                        field:"cep"
-                    },
-                    {
-                        title:'CPF',
-                        field:"cpf"
-                    },
-                    {
-                        title:'RG',
-                        field:"rg"
-                    },
-                    {
-                        title:'Telefone',
-                        field:"telefone"
-                    },
-                ]}
-                data={pacientes}
-                actions={[
-                    {
-                        icon:'→',
-                        tooltip:'ID DO PACIENTE',
-                        onClick:(event,pacientes) => alert("ID DO PACIENTE : " + pacientes.id)
-                    }
-                ]}
-             />
-        </Container>
+    }
+    return (
+        <Container fluid>
+            <h1>Pacientes cadastrados</h1>
+            <Table responsive striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>
+                            NOME
+                        </th>
+                        <th>
+                            EMAIL
+                        </th>
+                        <th>
+                            TELEFONE
+                        </th>
+                        <th>
+                            CPF
+                        </th>
+                        <th>
+                            RG
+                        </th>
+                        <th>
+                            ENDEREÇO
+                        </th>
+                        <th>
+                            N°
+                        </th>
+                        <th>
+                            CIDADE
+                        </th>
+                        <th>
+                            ESTADO
+                        </th>
+                        <th>
+                            CEP
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {pacientes.map(pacientes => {
+                        return (
+                            <tr key={pacientes.nome}>
+                                <td ><p>{pacientes.nome}</p></td>
+                                <td >{pacientes.email}</td>
+                                <td >{pacientes.telefone}</td>
+                                <td >{pacientes.cpf}</td>
+                                <td >{pacientes.rg}</td>
+                                <td >{pacientes.endereco}</td>
+                                <td >{pacientes.numeroResidencia}</td>
+                                <td >{pacientes.cidade}</td>
+                                <td >{pacientes.estado}</td>
+                                <td >{pacientes.cep}</td>
+                                <td ><Button onClick={() => DeletePaciente(pacientes._id)}>Delete</Button></td>
+                                <td ><Button onClick={() => window.location = "/UpdatePaciente/" + pacientes._id}>Editar</Button></td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </Table>
+        </Container >
     )
 }
-export default ListAllPacientes;
+export default ListAllEnfermeiros;
