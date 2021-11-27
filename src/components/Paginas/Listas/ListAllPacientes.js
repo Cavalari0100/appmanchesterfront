@@ -17,7 +17,7 @@ function ListAllEnfermeiros(props) {
             setListPacientes(data);
         }
     }, [])
-    console.log(pacientes)
+
     const DeletePaciente = async (id) => {
         const url = "https://uploadappmanchester.herokuapp.com/paciente/" + id;
         const data = await axios.delete(url).then(response => {

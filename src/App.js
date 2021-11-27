@@ -14,6 +14,7 @@ import React , {useEffect , useState} from 'react';
 import CadastroSintomas from './components/Paginas/Sintomas/CadastroDeSintomas';
 import UpdatePaciente from './components/Paginas/Listas/UpdateList/UpdatePaciente';
 import UpdateEnfermeiro from './components/Paginas/Listas/UpdateList/UpdateEnfermeiro';
+import UpdateProntuario from './components/Paginas/Listas/UpdateList/UpdateProntuario';
 
 import jwtDecode from 'jwt-decode';
 
@@ -49,6 +50,7 @@ function App(props) {
             <Route exact path='/enfermeiros' component={ListAllEnfermeiros}/>
             <Route exact path='/UpdatePaciente/:id' render={(props) => <UpdatePaciente {...props} />} />
             <Route exact path='/UpdateEnfermeiro/:id' render={(props) => <UpdateEnfermeiro {...props} />} />
+            <Route exact path='/UpdateProntuario/:id' render={(props) => <UpdateProntuario {...props} />} />
           </Switch>
         </Container>
       </Router>

@@ -34,15 +34,15 @@ function UpdatePaciente(props) {
                     xs="1"
                     style={{ paddingBottom: "1em" }}
                 >
-                    <Col style={{ backgroundColor: "#32325B" }}></Col>
-                    <Col style={{ backgroundColor: "#32325B" }}>
+                    <Col ></Col>
+                    <Col >
                         <img
                             src={process.env.PUBLIC_URL + "/logo192.png"}
                             width="100%"
                             alt="logo"
                         />
                     </Col>
-                    <Col style={{ backgroundColor: "#32325B" }}></Col>
+                    <Col ></Col>
                 </Row>
                 <h1>Alterar Ficha Paciente</h1>
                 <Row
