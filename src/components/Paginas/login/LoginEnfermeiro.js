@@ -27,7 +27,7 @@ function LoginEnfermeiro(props) {
             localStorage.setItem("token",result.token);
             window.location = "/"
         }else{
-            alert("Você esta com problema de BIO (bixo ignorante operando o sistema) ERRO!!!!!!")
+            alert("Você esta com problema de BIOs (bixo ignorante operando o sistema) ERRO!!!!!!")
         }
         
     }

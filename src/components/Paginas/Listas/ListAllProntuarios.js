@@ -7,7 +7,7 @@ function ListAllProntuarios(props){
     const [update, setUpdate] = useState(null);
     const [prontuarios,setListProntuarios] = useState([]);
     useEffect( async  () => {
-        const url = "https://uploadappmanchester.herokuapp.com/listAllSintomas";
+        const url = "https://uploadappmanchester.herokuapp.com/sintomas";
         const data =  await axios.get(url).then(response => {
             return response.data;
         }).catch(err =>{
